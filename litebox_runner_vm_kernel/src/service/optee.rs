@@ -66,7 +66,11 @@ impl Optee {
             policies.push((uuid, policy));
         }
         assert!(!tas.is_empty(), "payload has no tas/<name>.elf");
-        let broker_core = crate::broker::core();
+        // Randomness only.
+        let broker_core = crate::broker::core(
+            alloc::sync::Arc::new(litebox_broker_core::fs::UnsupportedFileService),
+            litebox_broker_core::ObjectRights::empty(),
+        );
         let spawn: Spawn = Box::new(move |uuid: &TeeUuid| {
             let Some(ta) = tas.get(uuid) else {
                 litebox_util_log::error!(uuid:? = uuid; "no such TA");

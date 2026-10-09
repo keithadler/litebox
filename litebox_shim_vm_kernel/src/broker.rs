@@ -246,6 +246,7 @@ fn op_kind(operation: &BrokerOperation) -> BrokerOp {
         BrokerOperation::WriteChildMemory(_) => BrokerOp::WriteChildMemory,
         BrokerOperation::Timer(_) => BrokerOp::Timer,
         BrokerOperation::Signal(_) => BrokerOp::Signal,
+        BrokerOperation::UnixSocket(_) => BrokerOp::UnixSocket,
     }
 }
 

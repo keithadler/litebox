@@ -396,6 +396,7 @@ broker_ops! {
     Timer = 17,
     Signal = 18,
     WriteChildMemory = 19,
+    UnixSocket = 20,
 }
 
 /// One bit per [`BrokerOp`] value.

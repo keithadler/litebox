@@ -388,7 +388,7 @@ broker_ops! {
     FillRandom = 9,
     File = 10,
     StartChildProcess = 11,
-    GetProcessExitStatus = 12,
+    ReapChild = 12,
     ExitChildProcess = 13,
     ReportExitStatus = 14,
     SetChildReaping = 15,
@@ -396,6 +396,10 @@ broker_ops! {
     Timer = 17,
     Signal = 18,
     WriteChildMemory = 19,
+    CancelChildProcess = 20,
+    SetOrphanAdoption = 21,
+    GetProcessInfo = 22,
+    ProcessGroup = 23,
 }
 
 /// One bit per [`BrokerOp`] value.
